@@ -1,0 +1,36 @@
+node_modules/
+.env
+.env.local
+dist/
+build/
+
+# Web (React)
+web/node_modules/
+web/build/
+web/dist/
+
+# Backend
+backend/node_modules/
+
+# Flutter / Dart
+mobile/.dart_tool/
+mobile/.flutter-plugins
+mobile/.flutter-plugins-dependencies
+mobile/.packages
+mobile/build/
+mobile/.pub-cache/
+mobile/.pub/
+mobile/**/generated_plugin_registrant.dart
+mobile/*.iml
+mobile/android/.gradle
+mobile/android/local.properties
+mobile/ios/Flutter/Flutter.podspec
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+*.log
+npm-debug.log*
