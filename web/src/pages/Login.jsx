@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { apiErrorMessage } from '../api/client';
 
-export default function Login() {
+export default function Login({ role }) {
   const { login } = useAuth();
   const navigate = useNavigate();
   const [form, setForm] = useState({ email: '', password: '' });
@@ -15,8 +15,12 @@ export default function Login() {
     setError('');
     setSubmitting(true);
     try {
-      await login(form.email, form.password);
-      navigate('/trader/submit');
+      const user = await login(form.email, form.password);
+      if (role && user.role !== role) {
+        setError(`This account is not a ${role} account.`);
+        return;
+      }
+      navigate(role === 'admin' ? '/admin/queue' : '/trader/submit');
     } catch (err) {
       setError(apiErrorMessage(err));
     } finally {
@@ -26,7 +30,7 @@ export default function Login() {
 
   return (
     <div className="page narrow">
-      <h1>Trader Log In</h1>
+      <h1>{role === 'admin' ? 'Admin' : 'Trader'} Log In</h1>
       <form onSubmit={handleSubmit} className="form">
         <label>
           Email
@@ -39,7 +43,7 @@ export default function Login() {
         {error && <p className="error">{error}</p>}
         <button type="submit" disabled={submitting}>{submitting ? 'Logging in...' : 'Log In'}</button>
       </form>
-      <p>Need an account? <Link to="/trader/signup">Sign up</Link></p>
+      {role !== 'admin' && <p>Need an account? <Link to="/trader/signup">Sign up</Link></p>}
     </div>
   );
 }

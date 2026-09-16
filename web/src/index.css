@@ -56,6 +56,9 @@ button {
   font-size: 0.9rem;
 }
 
+button.reject { background: #c62828; }
+button.approve { background: #1a7f37; }
+
 .page {
   max-width: 900px;
   margin: 0 auto;
@@ -101,6 +104,8 @@ button {
 }
 
 .price-table th { background: #f0f0f0; }
+
+.actions { display: flex; gap: 0.5rem; }
 
 .form {
   display: flex;

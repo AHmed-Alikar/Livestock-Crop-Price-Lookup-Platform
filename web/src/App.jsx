@@ -9,6 +9,7 @@ import TraderSignup from './pages/TraderSignup';
 import Login from './pages/Login';
 import TraderSubmit from './pages/TraderSubmit';
 import TraderSubmissions from './pages/TraderSubmissions';
+import AdminQueue from './pages/AdminQueue';
 
 export default function App() {
   return (
@@ -21,11 +22,11 @@ export default function App() {
           <Route path="/items/:category/:itemId" element={<ItemPrices />} />
 
           <Route path="/trader/signup" element={<TraderSignup />} />
-          <Route path="/trader/login" element={<Login />} />
+          <Route path="/trader/login" element={<Login role="trader" />} />
           <Route
             path="/trader/submit"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute role="trader">
                 <TraderSubmit />
               </ProtectedRoute>
             }
@@ -33,8 +34,18 @@ export default function App() {
           <Route
             path="/trader/submissions"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute role="trader">
                 <TraderSubmissions />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route path="/admin/login" element={<Login role="admin" />} />
+          <Route
+            path="/admin/queue"
+            element={
+              <ProtectedRoute role="admin">
+                <AdminQueue />
               </ProtectedRoute>
             }
           />

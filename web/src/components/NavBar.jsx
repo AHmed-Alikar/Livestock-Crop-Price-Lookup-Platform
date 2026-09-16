@@ -14,11 +14,23 @@ export default function NavBar() {
     <nav className="navbar">
       <Link to="/" className="brand">Price Lookup</Link>
       <div className="nav-links">
-        {!user && <Link to="/trader/login">Trader Login</Link>}
+        {!user && (
+          <>
+            <Link to="/trader/login">Trader Login</Link>
+            <Link to="/admin/login">Admin Login</Link>
+          </>
+        )}
         {user?.role === 'trader' && (
           <>
             <Link to="/trader/submit">Submit Price</Link>
             <Link to="/trader/submissions">My Submissions</Link>
+            <span className="user-chip">{user.name}</span>
+            <button onClick={handleLogout}>Log out</button>
+          </>
+        )}
+        {user?.role === 'admin' && (
+          <>
+            <Link to="/admin/queue">Pending Queue</Link>
             <span className="user-chip">{user.name}</span>
             <button onClick={handleLogout}>Log out</button>
           </>
