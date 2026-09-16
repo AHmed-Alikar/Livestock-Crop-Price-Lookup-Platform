@@ -10,6 +10,7 @@ import Login from './pages/Login';
 import TraderSubmit from './pages/TraderSubmit';
 import TraderSubmissions from './pages/TraderSubmissions';
 import AdminQueue from './pages/AdminQueue';
+import AdminManage from './pages/AdminManage';
 
 export default function App() {
   return (
@@ -46,6 +47,14 @@ export default function App() {
             element={
               <ProtectedRoute role="admin">
                 <AdminQueue />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/manage"
+            element={
+              <ProtectedRoute role="admin">
+                <AdminManage />
               </ProtectedRoute>
             }
           />

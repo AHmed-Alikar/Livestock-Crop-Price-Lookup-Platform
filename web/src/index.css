@@ -128,6 +128,19 @@ button.approve { background: #1a7f37; }
   font-size: 1rem;
 }
 
+.inline-form {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  align-items: center;
+}
+
+.inline-form input, .inline-form select {
+  padding: 0.4rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
 .error { color: #c62828; }
 .success { color: #1a7f37; }
 
@@ -142,3 +155,5 @@ button.approve { background: #1a7f37; }
 .history-section { margin-top: 2rem; }
 .history-list { list-style: none; padding: 0; }
 .history-list li { padding: 0.25rem 0; }
+
+section { margin-top: 2rem; }

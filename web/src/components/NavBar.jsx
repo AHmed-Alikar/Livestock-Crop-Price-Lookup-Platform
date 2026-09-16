@@ -31,6 +31,7 @@ export default function NavBar() {
         {user?.role === 'admin' && (
           <>
             <Link to="/admin/queue">Pending Queue</Link>
+            <Link to="/admin/manage">Manage Items/Markets</Link>
             <span className="user-chip">{user.name}</span>
             <button onClick={handleLogout}>Log out</button>
           </>
