@@ -30,6 +30,16 @@ body {
   text-decoration: none;
 }
 
+button {
+  cursor: pointer;
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.45rem 0.9rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
 .page {
   max-width: 900px;
   margin: 0 auto;
@@ -75,3 +85,7 @@ body {
 .price-table th { background: #f0f0f0; }
 
 .error { color: #c62828; }
+
+.history-section { margin-top: 2rem; }
+.history-list { list-style: none; padding: 0; }
+.history-list li { padding: 0.25rem 0; }
